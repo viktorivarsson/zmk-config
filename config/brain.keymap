@@ -108,8 +108,8 @@
         gaming_secondary_layer {
             bindings = <
                         &kp F1          &kp F2          &kp F3      &kp F4            &kp F5            &kp J             &kp L             &kp U         &kp Y       &kp BSPC
-            &none       &none           &kp T           &kp Y       &kp U             &kp I             &kp M             &hm RCTRL N       &hm RSHIFT E  &hm RALT I  &hm RGUI O    &kp N2
-            &none       &kp TAB         &kp Z           &kp X       &kp C             &kp V             &kp M             &kp N             &kp E         &kp I       &kp O         &kp N3
+            &kp TAB     &kp H           &kp T           &kp Y       &kp U             &kp I             &kp M             &hm RCTRL N       &hm RSHIFT E  &hm RALT I  &hm RGUI O    &kp N2
+            &kp J       &kp K           &kp Z           &kp X       &kp C             &kp V             &kp M             &kp N             &kp E         &kp I       &kp O         &kp N3
                                                         &trans      &kp ENTER         &trans            &mo FUNC          &mo SYMBOLS_SWE   &trans
             >;
         };
