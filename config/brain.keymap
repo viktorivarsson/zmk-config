@@ -91,7 +91,7 @@
                         &kp Q       &kp W         &kp F           &kp P       &kp B         &kp J                 &kp L                 &kp U           &kp Y       &kp BSPC
             &kp N1      &hm LGUI A  &hm LALT R    &hm LSHIFT S    &hm LCTRL T &kp G         &kp M                 &hm RCTRL N           &hm RSHIFT E    &hm RALT I  &hm RGUI O  &kp N6
             &kp N2      &kp Z       &kp X         &kp C           &kp D       &kp V         &kp K                 &kp H                 &kp COMMA       &kp DOT     &kp ENTER   &kp N5
-                                                  &kp N1          &lt NUMBER TAB  &kp SPACE                       &lt SYMBOLS_SWE BSPC  &lt FUNC ESC    &kp N4
+                                                  &lt NUMBER TAB  &kp SPACE   &kp N1        &kp N4                &lt SYMBOLS_SWE BSPC  &lt FUNC ESC
             >;
         };
 
@@ -100,7 +100,7 @@
                         &kp N1          &kp N2          &kp N3          &kp N4            &kp N5            &kp J             &kp L             &kp U         &kp Y       &kp BSPC
             &kp ESC     &kp LSHIFT      &kp Q           &kp W           &kp E             &kp R             &kp M             &hm RCTRL N       &hm RSHIFT E  &hm RALT I  &hm RGUI O    &kp N2
             &kp LALT    &kp LCTRL       &kp A           &kp S           &kp D             &kp F             &kp M             &kp N             &kp E         &kp I       &kp O         &kp N3
-                                                        &kp G           &mo GAMING_SEC  &kp SPACE           &mo SYMBOLS_SWE   &mo FUNC          &trans
+                                                        &mo GAMING_SEC  &kp SPACE         &kp G             &trans            &mo SYMBOLS_SWE   &mo FUNC
             >;
         };
 
@@ -110,7 +110,7 @@
                         &kp F1          &kp F2          &kp F3      &kp F4            &kp F5            &kp J             &kp L             &kp U         &kp Y       &kp BSPC
             &kp TAB     &kp H           &kp T           &kp Y       &kp U             &kp I             &kp M             &hm RCTRL N       &hm RSHIFT E  &hm RALT I  &hm RGUI O    &kp N2
             &kp J       &kp K           &kp Z           &kp X       &kp C             &kp V             &kp M             &kp N             &kp E         &kp I       &kp O         &kp N3
-                                                        &trans      &kp ENTER         &trans            &mo FUNC          &mo SYMBOLS_SWE   &trans
+                                                        &trans      &kp ENTER         &trans            &trans            &mo FUNC          &mo SYMBOLS_SWE
             >;
         };
 
@@ -119,17 +119,17 @@
                       &kp SEM_DQT       &kp SEM_AT          &kp SEM_EXCL          &kp SEM_LBKT          &kp SEM_RBKT      &kp SEM_LPAR    &kp SEM_RPAR          &kp SEM_UNDER         &kp SEM_QMARK      &kp SEM_AE
             &none     &hm LGUI SEM_SQT  &hm LALT SEM_AMPS   &hm LSHIFT SEM_STAR   &hm LCTRL SEM_GRAVE   &kp SEM_PLUS      &kp SEM_MINUS   &hm RCTRL SEM_TILDE   &hm RSHIFT SEM_EQUAL  &hm RALT SEM_PIPE  &hm RGUI SEM_AA    &none
             &none     &kp SEM_PRCNT     &kp SEM_HASH        &kp SEM_CARET         &kp SEM_DLLR          &kp SEM_BSLH      &kp SEM_LBRC    &kp SEM_RBRC          &kp SEM_LT            &kp SEM_GT         &kp SEM_OO         &none
-                                                            &trans                &kp SEM_FSLH          &kp SPACE         &trans          &trans                &trans
+                                                            &kp SEM_FSLH          &kp SPACE             &trans            &trans          &trans                &trans
             >;
         };
 
 
         func_layer {
             bindings = <
-                      &kp ESC   &kp F1  &kp F2   &kp F3     &kp F4      &kp HOME    &kp PG_UP  &kp UP      &kp PG_DN   &kp DEL
-            &none     &kp TAB   &kp F5  &kp F6   &kp F7     &kp F8      &kp END     &kp LEFT   &kp DOWN    &kp RIGHT   &kp C_VOL_UP    &none
-            &none     &kp CAPS  &kp F9  &kp F10  &kp F11    &kp F12     &kp C_PREV  &kp C_PP   &kp C_NEXT  &kp C_MUTE  &kp C_VOL_DN    &none
-                                        &trans   &kp N3     &kp SPACE   &trans      &trans      &none
+                      &kp ESC   &kp F1  &kp F2    &kp F3     &kp F4       &kp HOME    &kp PG_UP   &kp UP      &kp PG_DN   &kp DEL
+            &none     &kp TAB   &kp F5  &kp F6    &kp F7     &kp F8       &kp END     &kp LEFT    &kp DOWN    &kp RIGHT   &kp C_VOL_UP    &none
+            &none     &kp CAPS  &kp F9  &kp F10   &kp F11    &kp F12      &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_MUTE  &kp C_VOL_DN    &none
+                                        &kp N3    &kp SPACE  &trans       &trans      &trans      &trans
             >;
         };
 
@@ -140,6 +140,7 @@
             &none       &hm LGUI  N6  &hm LALT N7 &hm LSHIFT N8   &hm LCTRL N9  &kp N0        &kp SEM_MINUS &hm RCTRL N4  &hm RSHIFT N5  &hm RALT N6  &hm RGUI COMMA   &none
             &none       &trans        &trans      &trans          &trans        &kp SEM_EQUAL &kp SEM_PLUS  &kp N1        &kp N2         &kp N3       &kp DOT   &none
                                                   &trans          &trans        &kp SPACE     &kp BSPC      &kp N0        &trans
+                                                  &trans          &kp SPACE     &trans        &trans        &kp BSPC      &kp N0
             >;
         };
 
