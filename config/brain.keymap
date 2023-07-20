@@ -99,10 +99,10 @@
 
         non_mac_layer {
             bindings = <
-                        &kp Q       &kp W         &kp F           &kp P       &kp B         &kp J                 &kp L                   &kp U           &kp Y       &kp SEM_AE
-            &kp N1      &hm LGUI A  &hm LALT R    &hm LSHIFT S    &hm LCTRL T &kp G         &kp M                 &hm RCTRL N             &hm RSHIFT E    &hm RALT I  &hm RGUI O  &kp SEM_AA
-            &kp N2      &kp Z       &kp X         &kp C           &kp D       &kp V         &kp K                 &kp H                   &kp COMMA       &kp DOT     &kp SEM_OO  &kp ENTER
-                                                  &lt NUMBER TAB  &kp SPACE   &kp ENTER     &kp BSPC              &lt SYMBOLS_SWE_M BSPC  &lt FUNC ESC
+                        &kp Q       &kp W         &kp F           &kp P       &kp B         &kp J                 &kp L                   &kp U           &kp Y       &kp SE_AE
+            &kp N1      &hm LGUI A  &hm LALT R    &hm LSHIFT S    &hm LCTRL T &kp G         &kp M                 &hm RCTRL N             &hm RSHIFT E    &hm RALT I  &hm RGUI O  &kp SE_AA
+            &kp N2      &kp Z       &kp X         &kp C           &kp D       &kp V         &kp K                 &kp H                   &kp COMMA       &kp DOT     &kp SE_OO  &kp ENTER
+                                                  &lt NUMBER TAB  &kp SPACE   &kp ENTER     &kp BSPC              &lt SYMBOLS_SWE BSPC    &lt FUNC ESC
             >;
         };
 
@@ -135,10 +135,10 @@
 
         symbols_swe_layer {
             bindings = <
-                      &kp SEM_DQT       &kp SEM_AT          &kp SEM_EXCL          &kp SEM_LBKT          &kp SEM_RBKT      &kp SEM_LPAR    &kp SEM_RPAR          &kp SEM_UNDER         &kp SEM_QMARK      &kp SEM_AE
-            &none     &hm LGUI SEM_SQT  &hm LALT SEM_AMPS   &hm LSHIFT SEM_STAR   &hm LCTRL SEM_GRAVE   &kp SEM_PLUS      &kp SEM_MINUS   &hm RCTRL SEM_TILDE   &hm RSHIFT SEM_EQUAL  &hm RALT SEM_PIPE  &hm RGUI SEM_AA    &none
-            &none     &kp SEM_PRCNT     &kp SEM_HASH        &kp SEM_CARET         &kp SEM_DLLR          &kp SEM_BSLH      &kp SEM_LBRC    &kp SEM_RBRC          &kp SEM_LT            &kp SEM_GT         &kp SEM_OO         &none
-                                                            &kp SEM_FSLH          &kp SPACE             &trans            &trans          &trans                &trans
+                      &kp SE_DQT       &kp SE_AT            &kp SE_EXCL          &kp SE_LBKT          &kp SE_RBKT     &kp SE_LPAR   &kp SE_RPAR           &kp SE_UNDER         &kp SE_QMARK      &kp SE_AE
+            &none     &hm LGUI SE_SQT  &hm LALT SE_AMPS     &hm LSHIFT SE_STAR   &hm LCTRL SE_GRAVE   &kp SE_PLUS     &kp SE_MINUS  &hm RCTRL SE_TILDE    &hm RSHIFT SE_EQUAL  &hm RALT SE_PIPE  &hm RGUI SE_AA    &none
+            &none     &kp SE_PRCNT     &kp SE_HASH          &kp SE_CARET         &kp SE_DLLR          &kp SE_BSLH     &kp SE_LBRC   &kp SE_RBRC           &kp SE_LT            &kp SE_GT         &kp SE_OO         &none
+                                                            &kp SE_FSLH          &kp SPACE            &trans          &trans        &trans                &trans
             >;
         };
 
