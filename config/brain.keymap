@@ -37,7 +37,7 @@
     cond_layers {
         compatible = "zmk,conditional-layers";
         // Define SETTINGS layer as tri-state
-        func_tristate {
+        func_tristate_mac {
             if-layers = <SYMBOLS_SWE_M FUNC>;
             then-layer = <SETTINGS>;
         };
