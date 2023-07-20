@@ -97,7 +97,7 @@
             >;
         };
 
-        default_layer {
+        non_mac_layer {
             bindings = <
                         &kp Q       &kp W         &kp F           &kp P       &kp B         &kp J                 &kp L                   &kp U           &kp Y       &kp SEM_AE
             &kp N1      &hm LGUI A  &hm LALT R    &hm LSHIFT S    &hm LCTRL T &kp G         &kp M                 &hm RCTRL N             &hm RSHIFT E    &hm RALT I  &hm RGUI O  &kp SEM_AA
