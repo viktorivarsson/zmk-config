@@ -121,7 +121,7 @@
 
         gaming_secondary_layer {
             bindings = <
-                        &kp F1          &kp F2          &kp F3      &kp F4            &kp F5            &trans            &trans            &trans        &trans      &trans        &trans
+                        &kp F1          &kp F2          &kp F3      &kp F4            &kp F5            &trans            &trans            &trans        &trans      &trans
             &kp TAB     &kp H           &kp T           &kp Y       &kp U             &kp I             &trans            &trans            &trans        &trans      &trans        &trans
             &kp J       &kp K           &kp Z           &kp X       &kp C             &kp V             &trans            &trans            &trans        &trans      &trans        &trans
                                                         &trans      &kp ENTER         &trans            &trans            &trans            &trans
