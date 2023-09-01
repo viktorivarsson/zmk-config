@@ -112,19 +112,19 @@
 
         gaming_layer {
             bindings = <
-                        &kp N1          &kp N2          &kp N3          &kp N4            &kp N5            &kp J             &kp L             &kp U         &kp Y       &kp BSPC
-            &kp ESC     &kp LSHIFT      &kp Q           &kp W           &kp E             &kp R             &kp M             &hm RCTRL N       &hm RSHIFT E  &hm RALT I  &hm RGUI O    &kp N2
-            &kp LALT    &kp LCTRL       &kp A           &kp S           &kp D             &kp F             &kp M             &kp N             &kp E         &kp I       &kp O         &kp N3
-                                                        &mo GAMING_SEC  &kp SPACE         &kp G             &trans            &mo SYMBOLS_SWE   &mo FUNC
+                        &kp N1          &kp N2          &kp N3          &kp N4            &kp N5            &kp J             &kp L                 &kp U         &kp Y       &kp SEM_AE
+            &kp ESC     &kp LSHIFT      &kp Q           &kp W           &kp E             &kp R             &kp M             &hm RCTRL N           &hm RSHIFT E  &hm RALT I  &hm RGUI O    &kp SEM_AA
+            &kp LALT    &kp LCTRL       &kp A           &kp S           &kp D             &kp F             &kp K             &kp H                 &kp COMMA     &kp DOT     &kp SEM_OO    &kp ENTER
+                                                        &mo GAMING_SEC  &kp SPACE         &kp G             &kp BSPC          &lt SYMBOLS_SWE BSPC  &lt FUNC ESC
             >;
         };
 
         gaming_secondary_layer {
             bindings = <
-                        &kp F1          &kp F2          &kp F3      &kp F4            &kp F5            &kp J             &kp L             &kp U         &kp Y       &kp BSPC
-            &kp TAB     &kp H           &kp T           &kp Y       &kp U             &kp I             &kp M             &hm RCTRL N       &hm RSHIFT E  &hm RALT I  &hm RGUI O    &kp N2
-            &kp J       &kp K           &kp Z           &kp X       &kp C             &kp V             &kp M             &kp N             &kp E         &kp I       &kp O         &kp N3
-                                                        &trans      &kp ENTER         &trans            &trans            &mo FUNC          &mo SYMBOLS_SWE
+                        &kp F1          &kp F2          &kp F3      &kp F4            &kp F5            &trans            &trans            &trans        &trans      &trans        &trans
+            &kp TAB     &kp H           &kp T           &kp Y       &kp U             &kp I             &trans            &trans            &trans        &trans      &trans        &trans
+            &kp J       &kp K           &kp Z           &kp X       &kp C             &kp V             &trans            &trans            &trans        &trans      &trans        &trans
+                                                        &trans      &kp ENTER         &trans            &trans            &trans            &trans
             >;
         };
 
@@ -158,9 +158,10 @@
         number_layer {
             bindings = <
                         &kp N1        &kp N2      &kp N3          &kp N4        &kp N5        &kp N6        &kp N7        &kp N8         &kp N9       &kp N0
-            &none       &hm LGUI  N6  &hm LALT N7 &hm LSHIFT N8   &hm LCTRL N9  &kp N0        &kp SEM_MINUS &hm RCTRL N4  &hm RSHIFT N5  &hm RALT N6  &hm RGUI COMMA   &none
-            &none       &trans        &trans      &trans          &trans        &kp SEM_EQUAL &kp SEM_PLUS  &kp N1        &kp N2         &kp N3       &kp DOT   &none
+            &none       &hm LGUI  N6  &hm LALT N7 &hm LSHIFT N8   &hm LCTRL N9  &kp N0        &kp SEM_MINUS &hm RCTRL N4  &hm RSHIFT N5  &hm RALT N6  &hm RGUI COMMA    &kp SEM_FSLH
+            &none       &trans        &trans      &trans          &trans        &kp SEM_EQUAL &kp SEM_PLUS  &kp N1        &kp N2         &kp N3       &kp DOT           &kp SEM_STAR
                                                   &trans          &kp SPACE     &trans        &trans        &kp BSPC      &kp N0
+
             >;
         };
 
