@@ -112,7 +112,7 @@
 
         gaming_layer {
             bindings = <
-                        &kp N1          &kp N2          &kp N3          &kp N4            &kp N5            &kp J             &kp L                 &kp U         &kp Y       &kp SEM_AE
+                        &kp N1          &kp N2          &kp N3          &kp N4            &kp N5            &kp N6            &kp N7                &kp N8        &kp N9      &kp N0
             &kp ESC     &kp LSHIFT      &kp Q           &kp W           &kp E             &kp R             &kp M             &hm RCTRL N           &hm RSHIFT E  &hm RALT I  &hm RGUI O    &kp SEM_AA
             &kp LALT    &kp LCTRL       &kp A           &kp S           &kp D             &kp F             &kp K             &kp H                 &kp COMMA     &kp DOT     &kp SEM_OO    &kp ENTER
                                                         &mo GAMING_SEC  &kp SPACE         &kp G             &kp BSPC          &lt SYMBOLS_SWE BSPC  &lt FUNC ESC
