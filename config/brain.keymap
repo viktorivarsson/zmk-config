@@ -92,6 +92,7 @@
     keymap {
         compatible = "zmk,keymap";
 
+        /* OLD
         default_layer {
             bindings = <
                         &kp Q       &kp W         &kp F           &kp P       &kp B         &kp J                 &kp L                   &kp U           &kp Y       &kp SEM_AE
@@ -100,12 +101,22 @@
                                                   &lt NUMBER TAB  &kp SPACE   &kp ENTER     &kp BSPC              &lt SYMBOLS_SWE_M BSPC  &lt FUNC ESC
             >;
         };
+        */
+
+        default_layer {
+            bindings = <
+                        &kp Q       &kp W         &kp F           &kp P       &kp B         &kp J                 &kp L                   &kp U           &kp Y       &kp SEM_AE
+            &kp LSHIFT  &kp A       &kp R         &kp S           &kp T       &kp G         &kp M                 &kp N                   &kp E           &kp I       &kp O       &kp RSHIFT
+            &kp LGUI    &kp Z       &kp X         &kp C           &kp D       &kp V         &kp K                 &kp H                   &kp COMMA       &kp DOT     &kp SEM_OO  &kp SEM_AA
+                                                  &lt NUMBER TAB  &kp SPACE   &kp ENTER     &kp BSPC              &lt SYMBOLS_SWE_M BSPC  &lt FUNC ESC
+            >;
+        };
 
         non_mac_layer {
             bindings = <
                         &kp Q       &kp W         &kp F           &kp P       &kp B         &kp J                 &kp L                   &kp U           &kp Y       &kp SED_AE
-            &kp N1      &hm LGUI A  &hm LALT R    &hm LSHIFT S    &hm LCTRL T &kp G         &kp M                 &hm RCTRL N             &hm RSHIFT E    &hm RALT I  &hm RGUI O  &kp SED_AA
-            &kp N2      &kp Z       &kp X         &kp C           &kp D       &kp V         &kp K                 &kp H                   &kp COMMA       &kp DOT     &kp SED_OO  &kp ENTER
+            &kp LSHIFT  &kp A       &kp R         &kp S           &kp T       &kp G         &kp M                 &kp N                   &kp E           &kp I       &kp O       &kp RSHIFT
+            &kp LGUI    &kp Z       &kp X         &kp C           &kp D       &kp V         &kp K                 &kp H                   &kp COMMA       &kp DOT     &kp SED_OO  &kp SED_AA
                                                   &lt NUMBER TAB  &kp SPACE   &kp ENTER     &kp BSPC              &lt SYMBOLS_SWE BSPC    &lt FUNC ESC
             >;
         };
@@ -113,7 +124,7 @@
         gaming_layer {
             bindings = <
                         &kp N1          &kp N2          &kp N3          &kp N4            &kp N5            &kp N6            &kp N7                &kp N8        &kp N9      &kp N0
-            &kp ESC     &kp LSHIFT      &kp Q           &kp W           &kp E             &kp R             &kp M             &hm RCTRL N           &hm RSHIFT E  &hm RALT I  &hm RGUI O    &kp SEM_AA
+            &kp ESC     &kp LSHIFT      &kp Q           &kp W           &kp E             &kp R             &kp M             &kp N                 &kp E         &kp I       &kp O         &kp SEM_AA
             &kp LALT    &kp LCTRL       &kp A           &kp S           &kp D             &kp F             &kp K             &kp H                 &kp COMMA     &kp DOT     &kp SEM_OO    &kp ENTER
                                                         &mo GAMING_SEC  &kp SPACE         &kp G             &kp BSPC          &lt SYMBOLS_SWE BSPC  &lt FUNC ESC
             >;
@@ -127,6 +138,18 @@
                                                         &trans      &kp ENTER         &trans            &trans            &trans            &trans
             >;
         };
+
+
+        /* OLD
+        symbols_swe_m_layer {
+            bindings = <
+                      &kp SEM_DQT       &kp SEM_AT          &kp SEM_EXCL          &kp SEM_LBKT          &kp SEM_RBKT      &kp SEM_LPAR    &kp SEM_RPAR          &kp SEM_UNDER         &kp SEM_QMARK      &kp SEM_AE
+            &none     &hm LGUI SEM_SQT  &hm LALT SEM_AMPS   &hm LSHIFT SEM_STAR   &hm LCTRL SEM_GRAVE   &kp SEM_PLUS      &kp SEM_MINUS   &hm RCTRL SEM_TILDE   &hm RSHIFT SEM_EQUAL  &hm RALT SEM_PIPE  &hm RGUI SEM_AA    &none
+            &none     &kp SEM_PRCNT     &kp SEM_HASH        &kp SEM_CARET         &kp SEM_DLLR          &kp SEM_BSLH      &kp SEM_LBRC    &kp SEM_RBRC          &kp SEM_LT            &kp SEM_GT         &kp SEM_OO         &none
+                                                            &kp SEM_FSLH          &kp SPACE             &trans            &trans          &trans                &trans
+            >;
+        };
+        */
 
         symbols_swe_m_layer {
             bindings = <
