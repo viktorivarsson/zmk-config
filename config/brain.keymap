@@ -107,8 +107,8 @@
             bindings = <
                         &kp Q       &kp W         &kp F           &kp P       &kp B         &kp J                 &kp L                   &kp U           &kp Y       &kp LALT
             &kp LSHIFT  &kp A       &kp R         &kp S           &kp T       &kp G         &kp M                 &kp N                   &kp E           &kp I       &kp O       &kp RSHIFT
-            &kp LGUI    &kp Z       &kp X         &kp C           &kp D       &kp V         &kp K                 &kp H                   &kp COMMA       &kp DOT     &kp LCTRL   &kp RSHIFT
-                                                  &lt NUMBER TAB  &kp SPACE   &kp ENTER     &kp BSPC              &lt SYMBOLS_SWE_M BSPC  &lt FUNC ESC
+            &kp LCTRL   &kp Z       &kp X         &kp C           &kp D       &kp V         &kp K                 &kp H                   &kp COMMA       &kp DOT     &kp ENTER   &kp BSPC
+                                                  &lt NUMBER TAB  &kp SPACE   &kp LCTRL     &kp LGUI              &lt SYMBOLS_SWE_M BSPC  &lt FUNC ESC
             >;
         };
 
