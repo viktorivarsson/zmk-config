@@ -16,7 +16,7 @@
 #define NON_MAC       1
 #define GAMING        2
 #define GAMING_SEC    3
-#define SYMBOLS_SWE_M 4
+#define SYM_M         4
 #define SYMBOLS_SWE   5
 #define FUNC          6
 #define NUMBER        7
@@ -34,18 +34,21 @@
             bindings = <&kp>, <&kp>;
         };
     };
-    cond_layers {
+    conditional_layers {
         compatible = "zmk,conditional-layers";
-        // Define SETTINGS layer as tri-state
-        func_tristate_mac {
-            if-layers = <SYMBOLS_SWE_M FUNC>;
-            then-layer = <SETTINGS>;
+        tri_layer_mac {
+            if-layers = <SYM_M NUMBER>;
+            then-layer = <FUNC>;
         };
-        func_tristate {
-            if-layers = <SYMBOLS_SWE FUNC>;
-            then-layer = <SETTINGS>;
+        tri_layer {
+            if-layers = <SYMBOLS_SWE NUMBER>;
+            then-layer = <FUNC>;
         };
     };
+    &sl {
+        release-after-ms = <5000>;
+    };
+
 
 /*           40 Keys
 ╭─────────────────╮ ╭─────────────────╮
@@ -92,23 +95,17 @@
     keymap {
         compatible = "zmk,keymap";
 
-        /* OLD
         default_layer {
             bindings = <
-                        &kp Q       &kp W         &kp F           &kp P       &kp B         &kp J                 &kp L                   &kp U           &kp Y       &kp SEM_AE
-            &kp N1      &hm LGUI A  &hm LALT R    &hm LSHIFT S    &hm LCTRL T &kp G         &kp M                 &hm RCTRL N             &hm RSHIFT E    &hm RALT I  &hm RGUI O  &kp SEM_AA
-            &kp N2      &kp Z       &kp X         &kp C           &kp D       &kp V         &kp K                 &kp H                   &kp COMMA       &kp DOT     &kp SEM_OO  &kp ENTER
-                                                  &lt NUMBER TAB  &kp SPACE   &kp ENTER     &kp BSPC              &lt SYMBOLS_SWE_M BSPC  &lt FUNC ESC
-            >;
-        };
-        */
-
-        default_layer {
-            bindings = <
-                        &kp Q       &kp W         &kp F           &kp P           &kp B           &kp J                 &kp L                     &kp U           &kp Y       &kp TAB
-            &kp LSHIFT  &kp A       &kp R         &kp S           &kp T           &kp G           &kp M                 &kp N                     &kp E           &kp I       &kp O       &kp RSHIFT
-            &kp LCTRL   &kp Z       &kp X         &kp C           &kp D           &kp V           &kp K                 &kp H                     &kp COMMA       &kp DOT     &kp ENTER   &kp BSPC
-                                                  &lt NUMBER TAB  &mt LALT SPACE  &mt LGUI ENTER  &kp BSPC              &lt SYMBOLS_SWE_M SPACE   &lt FUNC ESC
+   //                  ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮   ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮
+                        &kp Q            &kp W            &kp F            &kp P            &kp B                &kp J            &kp L            &kp U            &kp Y            &kp TAB
+   // ╭────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╮
+       &kp TAB          &kp A            &kp R            &kp S            &kp T            &kp G                &kp M            &kp N            &kp E            &kp I            &kp O            &kp ENTER
+   // ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
+       &kp LALT         &kp Z            &kp X            &kp C            &kp D            &kp V                &kp K            &kp H            &kp COMMA        &kp DOT          &kp BSPC         &kp BSPC
+   // ╰────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╯
+                                                          &mo NUMBER       &kp LCTRL        &kp LSHIFT           &kp SPACE        &mo SYM_M        &kp LGUI
+   //                                                    ╰────────────────┴────────────────┴────────────────╯   ╰────────────────┴────────────────┴────────────────╯
             >;
         };
 
@@ -139,61 +136,69 @@
             >;
         };
 
-
-        /* OLD
-        symbols_swe_m_layer {
+        sym_m_layer {
             bindings = <
-                      &kp SEM_DQT       &kp SEM_AT          &kp SEM_EXCL          &kp SEM_LBKT          &kp SEM_RBKT      &kp SEM_LPAR    &kp SEM_RPAR          &kp SEM_UNDER         &kp SEM_QMARK      &kp SEM_AE
-            &none     &hm LGUI SEM_SQT  &hm LALT SEM_AMPS   &hm LSHIFT SEM_STAR   &hm LCTRL SEM_GRAVE   &kp SEM_PLUS      &kp SEM_MINUS   &hm RCTRL SEM_TILDE   &hm RSHIFT SEM_EQUAL  &hm RALT SEM_PIPE  &hm RGUI SEM_AA    &none
-            &none     &kp SEM_PRCNT     &kp SEM_HASH        &kp SEM_CARET         &kp SEM_DLLR          &kp SEM_BSLH      &kp SEM_LBRC    &kp SEM_RBRC          &kp SEM_LT            &kp SEM_GT         &kp SEM_OO         &none
-                                                            &kp SEM_FSLH          &kp SPACE             &trans            &trans          &trans                &trans
-            >;
-        };
-        */
-
-        symbols_swe_m_layer {
-            bindings = <
-                      &kp SEM_DQT       &kp SEM_AT          &kp SEM_EXCL          &kp SEM_LBKT          &kp SEM_RBKT      &kp SEM_LPAR    &kp SEM_RPAR          &kp SEM_UNDER         &kp SEM_QMARK      &kp SEM_AE
-            &trans    &hm LGUI SEM_SQT  &hm LALT SEM_AMPS   &hm LSHIFT SEM_STAR   &hm LCTRL SEM_GRAVE   &kp SEM_PLUS      &kp SEM_MINUS   &kp SEM_TILDE         &kp SEM_EQUAL         &kp SEM_PIPE       &kp SEM_AA         &trans
-            &trans    &kp SEM_PRCNT     &kp SEM_HASH        &kp SEM_CARET         &kp SEM_DLLR          &kp SEM_BSLH      &kp SEM_LBRC    &kp SEM_RBRC          &kp SEM_LT            &kp SEM_GT         &kp SEM_OO         &trans
-                                                            &kp SEM_FSLH          &kp SPACE             &trans            &trans          &trans                &trans
+   //                  ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮   ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮
+                        &kp SEM_DQT      &kp SEM_AT       &kp SEM_EXCL     &kp SEM_LBKT     &kp SEM_RBKT         &kp SEM_LPAR     &kp SEM_RPAR     &kp SEM_UNDER    &kp SEM_QMARK    &kp SEM_AE
+   // ╭────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╮
+       &trans           &kp SEM_SQT      &kp SEM_AMPS     &kp SEM_STAR     &kp SEM_GRAVE    &kp SEM_PLUS         &kp SEM_MINUS    &kp SEM_TILDE    &kp SEM_EQUAL    &kp SEM_PIPE     &kp SEM_AA       &trans
+   // ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
+       &trans           &kp SEM_PRCNT    &kp SEM_HASH     &kp SEM_CARET    &kp SEM_DLLR     &kp SEM_BSLH         &kp SEM_LBRC     &kp SEM_RBRC     &kp SEM_LT       &kp SEM_GT       &kp SEM_OO       &trans
+   // ╰────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╯
+                                                          &kp SEM_FSLH     &kp SPACE        &trans               &trans           &trans           &trans
+   //                                                    ╰────────────────┴────────────────┴────────────────╯   ╰────────────────┴────────────────┴────────────────╯
             >;
         };
 
         symbols_swe_layer {
             bindings = <
                       &kp SED_DQT       &kp SED_AT          &kp SED_EXCL          &kp SED_LBKT          &kp SED_RBKT      &kp SED_LPAR    &kp SED_RPAR          &kp SED_UNDER         &kp SED_QMARK      &kp SED_AE
-            &none     &hm LGUI SED_SQT  &hm LALT SED_AMPS   &hm LSHIFT SED_STAR   &hm LCTRL SED_GRAVE   &kp SED_PLUS      &kp SED_MINUS   &hm RCTRL SED_TILDE   &hm RSHIFT SED_EQUAL  &hm RALT SED_PIPE  &hm RGUI SED_AA    &none
+            &none     &kp SED_SQT       &kp SED_AMPS        &kp SED_STAR          &kp SED_GRAVE         &kp SED_PLUS      &kp SED_MINUS   &kp SED_TILDE         &kp SED_EQUAL         &kp SED_PIPE       &kp SED_AA         &none
             &none     &kp SED_PRCNT     &kp SED_HASH        &kp SED_CARET         &kp SED_DLLR          &kp SED_BSLH      &kp SED_LBRC    &kp SED_RBRC          &kp SED_LT            &kp SED_GT         &kp SED_OO         &none
                                                             &kp SED_FSLH          &kp SPACE             &trans            &trans          &trans                &trans
             >;
         };
 
+
         func_layer {
             bindings = <
-                      &kp ESC   &kp F1  &kp F2    &kp F3     &kp F4       &kp HOME    &kp PG_UP   &kp UP      &kp PG_DN   &kp DEL
-            &none     &kp TAB   &kp F5  &kp F6    &kp F7     &kp F8       &kp END     &kp LEFT    &kp DOWN    &kp RIGHT   &kp C_VOL_UP    &none
-            &none     &kp CAPS  &kp F9  &kp F10   &kp F11    &kp F12      &kp C_PREV  &kp C_PP    &kp C_NEXT  &kp C_MUTE  &kp C_VOL_DN    &none
-                                        &kp N3    &kp SPACE  &trans       &trans      &trans      &trans
+   //                  ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮   ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮
+                        &trans           &kp F1           &kp F2           &kp F3           &kp F4               &kp HOME         &kp PG_UP        &kp UP           &kp PG_DN        &kp DEL
+   // ╭────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╮
+       &sl SETTINGS     &trans           &kp F5           &kp F6           &kp F7           &kp F8               &kp END          &kp LEFT         &kp DOWN         &kp RIGHT        &kp C_VOL_UP     &trans
+   // ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
+       &trans           &kp CAPS         &kp F9           &kp F10          &kp F11          &kp F12              &kp C_PREV       &kp C_PP         &kp C_NEXT       &kp C_MUTE       &kp C_VOL_DN     &trans
+   // ╰────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╯
+                                                          &trans           &kp SPACE        &trans               &trans           &trans           &trans
+   //                                                    ╰────────────────┴────────────────┴────────────────╯   ╰────────────────┴────────────────┴────────────────╯
             >;
         };
 
         number_layer {
             bindings = <
-                        &kp N1        &kp N2      &kp N3          &kp N4        &kp N5        &kp N6        &kp N7        &kp N8         &kp N9       &kp N0
-            &none       &hm LGUI  N6  &hm LALT N7 &hm LSHIFT N8   &hm LCTRL N9  &kp N0        &kp SEM_MINUS &hm RCTRL N4  &hm RSHIFT N5  &hm RALT N6  &hm RGUI COMMA    &kp SEM_FSLH
-            &none       &trans        &trans      &trans          &trans        &kp SEM_EQUAL &kp SEM_PLUS  &kp N1        &kp N2         &kp N3       &kp DOT           &kp SEM_STAR
-                                                  &trans          &kp SPACE     &trans        &trans        &kp BSPC      &kp N0
-
+   //                  ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮   ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮
+                        &trans           &trans           &trans           &trans           &trans               &trans           &kp N7           &kp N8           &kp N9           &trans
+   // ╭────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╮
+       &tranr           &trans           &trans           &trans           &trans           &trans               &kp SEM_MINUS    &kp N4           &kp N5           &kp N6           &kp COMMA        &kp SEM_FSLH
+   // ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
+       &tranr           &trans           &trans           &trans           &trans           &trans               &kp SEM_PLUS     &kp N1           &kp N2           &kp N3           &kp DOT          &kp SEM_STAR
+   // ╰────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╯
+                                                          &trans           &trans           &trans               &trans           &kp BSPC         &kp N0
+   //                                                    ╰────────────────┴────────────────┴────────────────╯   ╰────────────────┴────────────────┴────────────────╯
             >;
         };
 
         settings_layer {
             bindings = <
-                    &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &ext_power EP_ON    &ext_power EP_OFF   &trans      &trans    &trans
-            &none   &bt BT_CLR      &trans          &trans          &trans          &trans          &to DEFAULT         &to GAMING          &to NON_MAC  &trans    &trans    &none
-            &none   &out OUT_BLE    &out OUT_USB    &trans          &trans          &bootloader     &bootloader         &trans              &trans      &trans    &trans    &none
-                                                    &trans          &trans          &trans          &trans              &trans              &trans
+   //                  ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮   ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮
+                        &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4         &ext_power EP_ON &ext_power EP_OFF &trans          &trans           &trans
+   // ╭────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╮
+       &trans           &bt BT_CLR       &trans           &trans           &trans           &trans               &to DEFAULT      &to GAME         &to NON_MAC      &trans           &trans           &trans
+   // ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
+       &trans           &out OUT_BLE     &out OUT_USB     &trans           &trans           &bootloader          &bootloader      &trans           &trans           &trans           &trans           &trans
+   // ╰────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╯
+                                                          &trans           &trans           &trans               &trans           &trans           &trans
+   //                                                    ╰────────────────┴────────────────┴────────────────╯   ╰────────────────┴────────────────┴────────────────╯
             >;
         };
     };
