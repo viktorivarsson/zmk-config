@@ -14,10 +14,10 @@
 
 #define DEFAULT       0
 #define NON_MAC       1
-#define GAME        2
-#define GAME_SEC    3
+#define GAME          2
+#define GAME_SEC      3
 #define SYM_M         4
-#define SYM_W   5
+#define SYM_W         5
 #define FUNC          6
 #define NUMBER        7
 #define SETTINGS      8
@@ -71,7 +71,7 @@
    // ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
        &kp LALT         &kp Z            &kp X            &kp C            &kp D            &kp V                &kp K            &kp H            &kp COMMA        &kp DOT          &kp BSPC         &kp BSPC
    // ╰────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┼────────────────╯
-                                                          &mo NUMBER       &kp LCTRL        &kp LSHIFT           &kp SPACE        &mo SYM          &kp LGUI
+                                                          &mo NUMBER       &kp LCTRL        &kp LSHIFT           &kp SPACE        &mo SYM_W          &kp LGUI
    //                                                    ╰────────────────┴────────────────┴────────────────╯   ╰────────────────┴────────────────┴────────────────╯
             >;
         };
