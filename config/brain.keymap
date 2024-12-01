@@ -32,13 +32,13 @@
          ╰────────╯ ╰────────╯       */
 
 / {
-    conditional_layers {
+    cond_layers {
         compatible = "zmk,conditional-layers";
-        tri_layer_mac {
+        func_tristate_mac {
             if-layers = <SYM_M NUMBER>;
             then-layer = <FUNC>;
         };
-        tri_layer {
+        func_tristate {
             if-layers = <SYM_W NUMBER>;
             then-layer = <FUNC>;
         };
