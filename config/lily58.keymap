@@ -1,0 +1,237 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include "swe_keys_default.h"
+#include "swe_keys_mac.h"
+
+#define TESTING       0
+#define DEFAULT       1
+#define NON_MAC       2
+#define SYMBOLS_SWE_M 3
+#define SYMBOLS_SWE   4
+#define FUNC          5
+#define NUMBER        6
+#define SETTINGS      7
+
+/ {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+    cond_layers {
+        compatible = "zmk,conditional-layers";
+        // Define SETTINGS layer as tri-state
+        func_tristate_mac {
+            if-layers = <SYMBOLS_SWE_M FUNC>;
+            then-layer = <SETTINGS>;
+        };
+        func_tristate {
+            if-layers = <SYMBOLS_SWE FUNC>;
+            then-layer = <SETTINGS>;
+        };
+    };
+
+/*           58 Keys - 29 per side
+╭───────────────────────╮ ╭───────────────────────╮
+│ 0   1   2   3   4   5   │ │ 6   7   8   9   10  11 │
+│12  13  14  15  16  17  18│ │19  20  21  22  23  24  25│
+│26  27  28  29  30  31  32│ │33  34  35  36  37  38  39│
+│40  41  42  43  44  45  46│ │47  48  49  50  51  52  53│
+│          54  55  56      │ │         57  58  59      │
+╰───────────────────────╯ ╰───────────────────────╯ */
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        testing_layer {
+            bindings = <
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
+// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
+// |  SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+//                     |  ALT  |  GUI  |  LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   | <system-reminder>
+
+            &kp ESC   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                     &kp N6     &kp N7     &kp N8     &kp N9     &kp N0    &kp GRAVE
+            &kp TAB   &kp Q   &kp W   &kp E   &kp R   &kp T       &kp Y         &kp U     &kp I     &kp O     &kp P     &kp MINUS &kp RBKT
+            &kp LGUI  &kp A   &kp S   &kp D   &kp F   &kp G       &kp H         &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp LBKT
+            &kp LSHFT &kp Z   &kp X   &kp C   &kp V   &kp B       &kp N         &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RBRC  &kp LALT
+                                &kp LBRC  &kp RBRC    &kp Q           &kp SPACE   &kp RET     &kp E     &kp RCTRL &kp FSLH    &kp DEL
+            >;
+        };
+
+        default_layer {
+            bindings = <
+// ------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
+// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
+// |  SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+//                     |  ALT  |  GUI  |  LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   | <system-reminder>
+
+            &kp ESC   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                     &kp N6     &kp N7     &kp N8     &kp N9     &kp N0    &kp GRAVE
+            &kp TAB   &kp Q   &kp W   &kp E   &kp R   &kp T       &kp Y         &kp U     &kp I     &kp O     &kp P     &kp MINUS &kp RBKT
+            &kp LCTRL &kp A   &kp S   &kp D   &kp F   &kp G       &kp H         &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp BSLH
+            &kp LSHFT &kp Z   &kp X   &kp C   &kp V   &kp B       &kp N         &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp EQUAL &kp RSHFT
+                                &kp LBRC  &kp RBRC    &kp Q           &kp SPACE   &kp RET     &kp E     &kp RCTRL &kp FSLH    &kp DEL
+            >;
+        };
+
+        non_mac_layer {
+            bindings = <
+            /* Left Hand */                 /* Right Hand */
+            /* ┌───┬───┬───┬───┬───┬───┐ */   /* ┌───┬───┬───┬───┬───┬───┐ */
+            /* │ESC│ 1 │ 2 │ 3 │ 4 │ 5 │ */   /* │ 6 │ 7 │ 8 │ 9 │ 0 │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │TAB│ Q │ W │ E │ R │ T │ */   /* │ Y │ U │ I │ O │ P │ [ │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │CTR│ A │ S │ D │ F │ G │ */   /* │ H │ J │ K │ L │ ; │ ' │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │SHF│ Z │ X │ C │ V │ B │ */   /* │ N │ M │ , │ . │ / │ = │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │LGUI│LALT│TAB│SPC│RET│BSPC│ */   /* │FUNC│CTRL│SHF│SYMB│   │   │ */
+            /* └───┴───┴───┴───┴───┴───┘ */   /* └───┴───┴───┴───┴───┴───┘ */
+
+            &kp ESC   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                     &kp N6     &kp N7     &kp N8     &kp N9     &kp N0    &kp MINUS
+            &kp TAB   &kp Q   &kp W   &kp E   &kp R   &kp T       &kp Y         &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT
+            &kp LCTRL &kp A   &kp S   &kp D   &kp F   &kp G       &kp H         &kp J     &kp K     &kp L     &kp SEMI  &kp SQT   &kp BSLH
+            &kp LSHFT &kp Z   &kp X   &kp C   &kp V   &kp B       &kp N         &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp EQUAL &kp RSHFT
+                                    &hm LGUI SEM_SQT  &hm LALT SEM_AMPS   &lt NUMBER TAB  &kp SPACE   &kp RET     &lt SYMBOLS_SWE BSPC    &lt FUNC ESC   &hm RCTRL N6  &hm RSHIFT N7
+            >;
+        };
+
+
+
+        symbols_swe_m_layer {
+            bindings = <
+            /* Left Hand */                 /* Right Hand */
+            /* ┌───┬───┬───┬───┬───┬───┐ */   /* ┌───┬───┬───┬───┬───┬───┐ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ - │ - │ - │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │SED│ @ │ # │ $ │ % │ */   /* │ ^ │ & │ * │ ( │ ) │ + │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │SEM│ ! │ ` │ ~ │ | │ */   /* │ - │ - │ { │ } │ < │ > │ :│ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ - │ - │ - │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │SED│SEM│SPC│RET│BSP│DEL│ */   /* │AE │AE │   │   │   │   │ */
+            /* └───┴───┴───┴───┴───┴───┘ */   /* └───┴───┴───┴───┴───┴───┘ */
+
+            &none     &none   &none   &none   &none   &none                      &none      &none      &none      &none      &none      &none
+            &none     &sed_sw &kp AT  &kp HASH &kp DLLR &kp PRCNT &kp CARET   &kp AMPS  &kp ASTRK  &kp LPAR   &kp RPAR   &kp UNDER  &kp PLUS
+            &none     &sed_sw &kp EXCL &kp GRAVE &kp TILDE &kp PIPE   &kp MINUS   &kp EQUAL &kp LBRC   &kp RBRC   &kp LT     &kp GT     &kp COLON
+            &none     &none   &none   &none   &none   &none       &none       &none     &none     &none     &none     &none     &none
+                                    &kp SED_DQT         &kp SEM_DQT         &kp SPACE  &kp RET     &kp BSPC    &kp DEL             &kp SED_AE  &kp SEM_AE
+            >;
+        };
+
+        symbols_swe_layer {
+            bindings = <
+            /* Left Hand */                 /* Right Hand */
+            /* ┌───┬───┬───┬───┬───┬───┐ */   /* ┌───┬───┬───┬───┬───┬───┐ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ - │ - │ - │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │SED│ @ │ # │ $ │ % │ */   /* │ ^ │ & │ * │ ( │ ) │ + │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │SED│ ! │ ` │ ~ │ | │ */   /* │ - │ - │ { │ } │ < │ > │ :│ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ - │ - │ - │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │SED│SEM│SPC│RET│BSP│DEL│ */   /* │AA │AA │   │   │   │   │ */
+            /* └───┴───┴───┴───┴───┴───┘ */   /* └───┴───┴───┴───┴───┴───┘ */
+
+            &none     &none   &none   &none   &none   &none                      &none      &none      &none      &none      &none      &none
+            &none     &sed_sw &kp AT  &kp HASH &kp DLLR &kp PRCNT &kp CARET   &kp AMPS  &kp ASTRK  &kp LPAR   &kp RPAR   &kp UNDER  &kp PLUS
+            &none     &sed_sw &kp EXCL &kp GRAVE &kp TILDE &kp PIPE   &kp MINUS   &kp EQUAL &kp LBRC   &kp RBRC   &kp LT     &kp GT     &kp COLON
+            &none     &none   &none   &none   &none   &none       &none       &none     &none     &none     &none     &none     &none
+                                    &kp SED_DQT         &kp SEM_DQT         &kp SPACE  &kp RET     &kp BSPC    &kp DEL             &kp SED_AA  &kp SEM_AA
+            >;
+        };
+
+        func_layer {
+            bindings = <
+            /* Left Hand */                 /* Right Hand */
+            /* ┌───┬───┬───┬───┬───┬───┐ */   /* ┌───┬───┬───┬───┬───┬───┐ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ - │ - │ - │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │HOME│PG_DN│ ↑ │PG_UP│END│ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ ← │ ↓ │ → │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ - │ - │ - │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │F1 │F2 │SPC│RET│BSP│DEL│ */   /* │F3 │F4 │   │   │   │   │ */
+            /* └───┴───┴───┴───┴───┴───┘ */   /* └───┴───┴───┴───┴───┴───┘ */
+
+            &none     &none   &none   &none   &none   &none                      &none      &none      &none      &none      &none      &none
+            &none     &none   &none   &none   &none   &none       &kp HOME    &kp PG_DN  &kp UP     &kp PG_UP  &kp END    &none      &none
+            &none     &none   &none   &none   &none   &none       &kp LEFT    &kp DOWN   &kp RIGHT  &none     &none     &none      &none
+            &none     &none   &none   &none   &none   &none       &none       &none     &none     &none     &none     &none     &none
+                                    &kp F1              &kp F2              &trans     &kp RET     &kp BSPC    &kp DEL             &kp F3      &kp F4
+            >;
+        };
+
+        number_layer {
+            bindings = <
+            /* Left Hand */                 /* Right Hand */
+            /* ┌───┬───┬───┬───┬───┬───┐ */   /* ┌───┬───┬───┬───┬───┬───┐ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ - │ - │ - │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ 7 │ 8 │ 9 │ 0 │ , │ . │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ - │ - │ - │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │ - │ - │SPC│RET│BSP│ */   /* │ - │ - │   │   │   │   │ */
+            /* └───┴───┴───┴───┴───┴───┘ */   /* └───┴───┴───┴───┴───┴───┘ */
+
+            &none     &none   &none   &none   &none   &none                      &none      &none      &none      &none      &none      &none
+            &none     &none   &none   &none   &none   &none       &kp N1      &kp N2     &kp N3     &kp N4     &kp N5     &kp N6     &kp N7
+            &none     &none   &none   &none   &none   &none       &kp N8      &kp N9     &kp N0     &kp COMMA  &kp DOT    &kp SLASH  &kp MINUS
+            &none     &none   &none   &none   &none   &none       &none       &none     &none     &none     &none     &none     &none
+                                    &none              &none              &kp SPACE  &kp RET     &kp BSPC    &kp DEL             &none      &none
+            >;
+        };
+
+        settings_layer {
+            bindings = <
+            /* Left Hand */                 /* Right Hand */
+            /* ┌───┬───┬───┬───┬───┬───┐ */   /* ┌───┬───┬───┬───┬───┬───┐ */
+            /* │ - │ - │ - │ - │ - │ - │ */   /* │ - │ - │ - │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │CLR│ 0 │ 1 │ 2 │ 3 │ 4 │ */   /* │ 5 │ON │OFF│TOG│ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │BLE│USB│ - │ - │ - │ - │ */   /* │DEF│GME│NON│ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │BT │BT │BT │BT │BT │BT │ */   /* │BT │BT │BT │ - │ - │ - │ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │BOOT│BOOT│BOOT│BOOT│BOOT│BOOT│ */   /* │BOOT│BOOT│BOOT│BOOT│BOOT│BOOT│ */
+            /* ├───┼───┼───┼───┼───┼───┤ */   /* ├───┼───┼───┼───┼───┼───┤ */
+            /* │ - │ - │ - │SPC│RET│BSP│ */   /* │ - │ - │   │   │   │   │ */
+            /* └───┴───┴───┴───┴───┴───┘ */   /* └───┴───┴───┴───┴───┴───┘ */
+
+            &none     &none   &none   &none   &none   &none                      &none      &none      &none      &none      &none      &none
+            &none     &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &ext_power EP_ON &ext_power EP_OFF &ext_power EP_TOG &none     &none
+            &none     &out OUT_BLE &out OUT_USB &none &none &none       &to DEFAULT &to GAMING  &to NON_MAC &none     &none     &none     &none
+            &none     &bootloader &bootloader &bootloader &bootloader &bootloader       &bootloader &bootloader &bootloader &bootloader &bootloader &bootloader &bootloader
+                                    &none              &none              &trans     &kp RET     &kp BSPC    &kp DEL             &none      &none
+            >;
+        };
+    };
+};
