@@ -1,0 +1,7 @@
+/*
+ * Copyright (c) 2022 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "../../../splitkb_aurora_lily58.keymap"
