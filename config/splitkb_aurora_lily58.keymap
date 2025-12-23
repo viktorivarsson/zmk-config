@@ -10,8 +10,11 @@
 # include <dt-bindings/zmk/bt.h>
 # include <dt-bindings/zmk/outputs.h>
 # include <dt-bindings/zmk/ext_power.h>
-# include "swe_keys_default.h"
-# include "swe_keys_mac.h"
+
+#ifndef KEYMAP_DRAWER
+  # include "swe_keys_default.h"
+  # include "swe_keys_mac.h"
+#endif
 
 # define DEFAULT       0
 # define LOWER         1
@@ -67,9 +70,9 @@
 //                     |      |      |      |        |  |       |      |       |       |
             bindings = <
 &trans    &trans          &trans          &trans          &trans          &trans                                     &trans          &trans            &trans             &trans           &trans        &trans
-&trans    &kp SED_DQT     &kp SED_AT      &kp SED_EXCL    &kp SED_LBKT    &kp SED_RBKT                               &kp SED_LPAR    &kp SED_RPAR      &kp SED_UNDER      &kp SED_QMARK    &trans        &trans
-&trans    &kp SED_SQT     &kp SED_AMPS    &kp SED_STAR    &kp SED_GRAVE   &kp SED_PLUS                               &kp SED_MINUS   &kp SED_TILDE     &kp SED_EQUAL      &kp SED_PIPE     &kp SED_AA    &trans
-&trans    &kp SED_PRCNT   &kp SED_HASH    &kp SED_CARET   &kp SED_DLLR    &kp SED_BSLH   &trans             &trans   &kp SED_LBRC    &kp SED_RBRC      &kp SED_LT         &kp SED_GT       &kp SED_OO    &trans
+&trans    &kp SEM_DQT     &kp SEM_AT      &kp SEM_EXCL    &kp SEM_LBKT    &kp SEM_RBKT                               &kp SEM_LPAR    &kp SEM_RPAR      &kp SEM_UNDER      &kp SEM_QMARK    &trans        &trans
+&trans    &kp SEM_SQT     &kp SEM_AMPS    &kp SEM_STAR    &kp SEM_GRAVE   &kp SEM_PLUS                               &kp SEM_MINUS   &kp SEM_TILDE     &kp SEM_EQUAL      &kp SEM_PIPE     &kp SEM_AA    &trans
+&trans    &kp SEM_PRCNT   &kp SEM_HASH    &kp SEM_CARET   &kp SEM_DLLR    &kp SEM_BSLH   &trans             &trans   &kp SEM_LBRC    &kp SEM_RBRC      &kp SEM_LT         &kp SEM_GT       &kp SEM_OO    &trans
                                           &trans          &trans          &trans         &trans             &trans   &trans          &trans            &trans
             >;
 
