@@ -60,8 +60,8 @@
 //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
             bindings = <
 &kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                              &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp SEM_PLUS
-&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                               &kp Y  &kp U    &kp I     &kp O   &kp P    &kp SEM_AA
-&kp LSHFT &kp A  &kp S  &kp D    &kp F    &kp G                               &kp H  &kp J    &kp K     &kp L   &kp SEM_OO &kp SEM_AE
+&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                               &kp Y  &kp U    &kp I     &kp O   &kp P    &kp SEM_AE
+&kp LSHFT &kp A  &kp S  &kp D    &kp F    &kp G                               &kp H  &kp J    &kp K     &kp L   &kp SEM_OO &kp SEM_AA
 &kp LCTRL &kp Z  &kp X  &kp C    &kp V    &kp B  &kp SEM_LBKT   &kp SEM_RBKT  &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &kp LALT &kp LGUI &mo 1  &kp SPACE      &kp RET       &mo 2  &kp BSPC &kp RGUI
             >;
@@ -132,8 +132,8 @@
 //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
             bindings = <
 &kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                                      &kp N6          &kp N7   &kp N8    &kp N9  &kp N0      &kp SED_PLUS
-&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                                       &kp Y           &kp U    &kp I     &kp O   &kp P       &kp SED_AA
-&kp LSHFT &kp A  &kp S  &kp D    &kp F    &kp G                                       &kp H           &kp J    &kp K     &kp L   &kp SED_OO  &kp SED_AE
+&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                                       &kp Y           &kp U    &kp I     &kp O   &kp P       &kp SED_AE
+&kp LSHFT &kp A  &kp S  &kp D    &kp F    &kp G                                       &kp H           &kp J    &kp K     &kp L   &kp SED_OO  &kp SED_AA
 &kp LCTRL &kp Z  &kp X  &kp C    &kp V    &kp B         &kp SED_LBKT    &kp SED_RBKT  &kp N           &kp M    &kp COMMA &kp DOT &kp FSLH    &kp RSHFT
                         &kp LALT &kp LGUI &mo PC_LOWER  &kp SPACE       &kp RET       &mo PC_RAISE    &kp BSPC  &kp RGUI
             >;
