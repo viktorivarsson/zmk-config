@@ -96,21 +96,21 @@ layers:
   - '~'
   - '='
   - '|'
-  - Ä
+  - /
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '%'
   - '#'
   - ^
   - $
-  - \
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '{'
   - '}'
   - <
   - '>'
-  - Ö
+  - \
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -275,21 +275,21 @@ layers:
   - '~'
   - '='
   - '|'
-  - Ä
+  - /
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '%'
   - '#'
   - ^
   - $
-  - \
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '{'
   - '}'
   - <
   - '>'
-  - Ö
+  - \
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
