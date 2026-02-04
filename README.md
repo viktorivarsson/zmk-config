@@ -3,10 +3,6 @@
 Heavily copied from
 [iamDrakkir/zmk-config](https://github.com/iamDrakkir/zmk-config)
 
-## Brain layout
+## Lily58 layout
 
-![image](https://github.com/viktorivarsson/zmk-config/blob/master/docs/export/brain.png)
-
-## Urchin layout
-
-![image](https://github.com/viktorivarsson/zmk-config/blob/master/docs/export/urchin.png)
+![image](https://raw.githubusercontent.com/viktorivarsson/zmk-config/refs/heads/main/keymap-drawer/splitkb_aurora_lily58.svg)
